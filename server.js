@@ -1,13 +1,13 @@
 require('dotenv').config()
 
-const express = require('express');
+const express = require('express')
 const app = express();
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended:true }))
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 app.post('/create-payment-intent', async (req, res) => {
     const { amount } = req.body
